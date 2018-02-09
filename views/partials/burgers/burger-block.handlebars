@@ -1,0 +1,12 @@
+<!-- Bootstrap card used to display burgers -->
+<div class="card">
+	<div class="card-body">
+		<p class="card-text">
+			#{{ id }}. {{burger_name}}
+			{{#if devoured}}
+				<button type="button" class="btn btn-danger float-right devourButton" data-id="{{id}}" data-devoured="{{devoured}}">Devour!</button>
+			{{/if}}
+		</p>
+	</div>
+</div>
+<br />

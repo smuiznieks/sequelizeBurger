@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-8">
+      <h1 class="text-center rounded">Burger Time</h1>
+      <br />
+    </div>
+  </div>
+  <div class="row">
+    <!-- Display Menu Items -->
+    <div class="col-sm-6">
+      <h3 class="text-center rounded">Menu</h3>
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+      {{/each}}
+    </div>
+    <!-- Display "Devoured" Items -->
+    <div class="col-sm-6">
+      <h3 class="text-center rounded">Devoured</h3>
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/burger-block devoured=false}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+  <!-- Dream Burger Form -->
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <div class="card" id="form-card">
+        <div class="card-body">
+          <p class="card-text">
+            <form>
+              <div class="form-group">
+                <label for="newBurger"><h2>Dream Burger</h2></label>
+                <input type="text" class="form-control" id="newBurger" aria-describedby="burgerHelp">
+                <small id="burgerHelp" class="form-text text-muted">Enter a burger you would like to add to the menu!</small>
+              </div>
+              <button id="submit" type="submit" class="btn btn-danger">Submit</button>
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
