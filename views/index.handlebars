@@ -10,23 +10,23 @@
     <div class="col-sm-6">
       <h3 class="text-center rounded">Menu</h3>
       {{#each burgers}}
-        {{#unless devoured}}
-          {{> burgers/burger-block devoured=true}}
+        {{#unless dataValues.devoured}}
+          {{> burgers/burger-block devoured=false}}
         {{/unless}}
       {{/each}}
     </div>
     <!-- Display "Devoured" Items -->
     <div class="col-sm-6">
-      <h3 class="text-center rounded">Devoured</h3>
+      <h3 class="text-center rounded">Hall of Fame</h3>
       {{#each burgers}}
-        {{#if devoured}}
-          {{> burgers/burger-block devoured=false}}
+        {{#if dataValues.devoured}}
+          {{> burgers/burger-block devoured=true}}
         {{/if}}
       {{/each}}
     </div>
   </div>
-  <!-- Dream Burger Form -->
-  <div class="row justify-content-md-center">
+  <div class="row">
+    <!-- Dream Burger Form -->
     <div class="col-sm-6">
       <div class="card" id="form-card">
         <div class="card-body">
@@ -37,7 +37,24 @@
                 <input type="text" class="form-control" id="newBurger" aria-describedby="burgerHelp">
                 <small id="burgerHelp" class="form-text text-muted">Enter a burger you would like to add to the menu!</small>
               </div>
-              <button id="submit" type="submit" class="btn btn-danger">Submit</button>
+              <button id="submitBurger" type="submit" class="btn btn-danger">Submit</button>
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Form -->
+    <div class="col-sm-6">
+      <div class="card" id="form-card">
+        <div class="card-body">
+          <p class="card-text">
+            <form>
+              <div class="form-group">
+                <label for="newCustomer"><h2>Customer</h2></label>
+                <input type="text" class="form-control" id="newCustomer" aria-describedby="customerHelp">
+                <small id="customerHelp" class="form-text text-muted">Enter your name to order a burger</small>
+              </div>
+              <button id="submitCustomer" type="submit" class="btn btn-danger">Submit</button>
             </form>
           </p>
         </div>

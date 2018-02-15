@@ -2,9 +2,24 @@
 <div class="card">
 	<div class="card-body">
 		<p class="card-text">
-			#{{ id }}. {{burger_name}}
-			{{#if devoured}}
-				<button type="button" class="btn btn-danger float-right devourButton" data-id="{{id}}" data-devoured="{{devoured}}">Devour!</button>
+			#{{dataValues.id}}. {{dataValues.burger_name}}
+			{{#unless dataValues.devoured}}
+				<form>
+					<div class="form-group">
+						<label for="customers"></label>
+   					 	<select class="form-control" id="customers">
+							{{#each customers}}
+								<option>{{dataValues.customer_name}}</option>
+							{{/each}}
+						</select>
+					
+						<!-- <input type="text" class="form-control" id="customerName" placeholder="Enter your name" aria-label="Customer's name" aria-describedby="basic-addon2"> -->
+					</div>
+					<button type="submit" class="btn btn-danger devourButton" data-id="{{dataValues.id}}" data-devoured="{{dataValues.devoured}}">Devour!</button>
+				</form>
+			{{/unless}}
+			{{#if dataValues.devoured}}
+				<br />This burger was devoured by <strong>{{dataValues.CustomerId}}</strong>
 			{{/if}}
 		</p>
 	</div>

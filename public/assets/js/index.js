@@ -1,6 +1,8 @@
 $(function() {
-    $('#submit').on('click', function(event) {
+
+    $('#submitBurger').on('click', function(event) {
         event.preventDefault();
+        console.log('click');
         $.ajax('/api/burgers', {
             type: 'POST',
             data: { burger_name: $('#newBurger').val().trim() }
@@ -12,7 +14,9 @@ $(function() {
         );
     });
     $('.devourButton').on('click', function(event) {
+        event.preventDefault();
         var id = $(this).data('id');
+        console.log(id);
         $.ajax('/api/burgers/' + id, {
             type: 'PUT',
             data: { devoured: true }
@@ -22,6 +26,19 @@ $(function() {
                 location.reload();
             }
         );    
+    });
+    $('#submitCustomer').on('click', function(event) {
+        event.preventDefault();
+        console.log($('#newCustomer').val().trim());
+        $.ajax('/api/customers', {
+            type: 'POST',
+            data: { customer_name: $('#newCustomer').val().trim() }
+        }).then(
+            function() {
+                console.log('Customer has been added to table.');
+                location.reload();
+            }
+        );
     });
 });
 
